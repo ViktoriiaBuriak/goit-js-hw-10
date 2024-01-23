@@ -1,4 +1,7 @@
 /* Timer */
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 
 .back {
   display: block;
@@ -16,8 +19,73 @@
   text-align: center;
 }
 
+.value {
+  color: #2e2f42;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+}
+
+.label {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 #datetime-picker {
-  margin-bottom: 12px;
+  padding: 8px;
+  margin-bottom: 32px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  background: #fff;
+  color: #2e2f42;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  transition: border-color 300ms ease;
+}
+
+#datetime-picker:active,
+#datetime-picker:focus {
+  border-color: #4e75ff;
+  outline: transparent;
+}
+
+#datetime-picker:hover {
+  border-color: #000;
+}
+
+#datetime-picker:disabled {
+  background: #cfcfcf;
+  color: #989898;
+}
+
+button[data-start] {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  transition: background-color 300ms ease;
+}
+
+button[data-start]:hover,
+button[data-start]:focus {
+  background-color: #6c8cff;
+}
+
+button[data-start]:disabled {
+  background: #cfcfcf;
+  color: #989898;
 }
 
 /* Snackbar */
@@ -27,4 +95,27 @@
   flex-direction: column;
   gap: 12px;
   width: fit-content;
+}
+
+.label-delay {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-delay input {
+  border-radius: 4px;
+border: 1px solid #808080;
+padding: 8px;
+transition: border-color 300ms ease;
+}
+
+.label-delay input:hover {
+  border-color: #000;
+}
+
+.label-delay input:focus,
+.label-delay input:active {
+  border-color: #4E75FF;
+  outline: transparent;
 }
