@@ -12,7 +12,11 @@
     />
     
     
-    <link rel="stylesheet" href="/goit-js-hw-10/assets/reset-43ac5090.css">
+    <script type="module" crossorigin src="/goit-js-hw-10/commonHelpers2.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/reset-3ace95da.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-651d7991.js">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/reset-b0e837fb.css">
+    <link rel="stylesheet" href="/goit-js-hw-10/assets/vendor-80d0dc0f.css">
   </head>
   <body>
     <a class="back" href="./index.html">>>Back</a>
@@ -25,12 +29,24 @@
 
       <fieldset>
         <legend>State</legend>
-        <label for="stateFulfilled">
-          <input type="radio" name="state" id="stateFulfilled" value="fulfilled" required />
+        <label class="state-label" for="stateFulfilled">
+          <input
+            type="radio"
+            name="state"
+            id="stateFulfilled"
+            value="fulfilled"
+            required
+          />
           Fulfilled
         </label>
-        <label for="stateRejected">
-          <input type="radio" name="state" id="stateRejected" value="rejected" required />
+        <label class="state-label" for="stateRejected">
+          <input
+            type="radio"
+            name="state"
+            id="stateRejected"
+            value="rejected"
+            required
+          />
           Rejected
         </label>
       </fieldset>
@@ -38,6 +54,6 @@
       <button type="submit">Create notification</button>
     </form>
 
-    <script src="./js/2-snackbar.js"></script>
+    
   </body>
 </html>
