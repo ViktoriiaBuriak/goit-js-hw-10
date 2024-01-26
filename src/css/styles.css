@@ -70,6 +70,7 @@ button[data-start] {
   border-radius: 8px;
   background-color: #4e75ff;
   color: #fff;
+  font-family: Montserrat;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -94,20 +95,25 @@ button[data-start]:disabled {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: fit-content;
+  width: 360px;
 }
 
 .label-delay {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
 }
 
 .label-delay input {
   border-radius: 4px;
-border: 1px solid #808080;
-padding: 8px;
-transition: border-color 300ms ease;
+  border: 1px solid #808080;
+  padding: 8px;
+  transition: border-color 300ms ease;
 }
 
 .label-delay input:hover {
@@ -116,6 +122,54 @@ transition: border-color 300ms ease;
 
 .label-delay input:focus,
 .label-delay input:active {
-  border-color: #4E75FF;
+  border-color: #4e75ff;
   outline: transparent;
+}
+
+legend {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+
+fieldset {
+  display: flex;
+  gap: 48px;
+  margin-bottom: 24px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  padding: 14px 48px 8px;
+}
+
+fieldset:hover,
+fieldset:focus {
+  border-color: #000;
+}
+
+.state-label {
+  color: #2e2f42;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.form button {
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  padding: 8px 16px;
+  color: #fff;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  transition: background-color 300ms ease;
+}
+
+.form button:hover,
+.form button:focus {
+  background-color: #6c8cff;
 }

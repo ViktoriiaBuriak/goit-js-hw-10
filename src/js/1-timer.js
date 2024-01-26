@@ -14,6 +14,7 @@ button.disabled = true;
 
 let userSelectedDate;
 let timerInterval;
+const currentDate = new Date();
 
 const options = {
   enableTime: true,
@@ -22,9 +23,22 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     userSelectedDate = selectedDates[0];
-    const currentDate = new Date();
 
     if (userSelectedDate < currentDate) {
+      button.disabled = true;
+      iziToast.error({
+        title: 'Error',
+        message: 'Please choose a date in the future',
+        position: 'topCenter',
+      });
+    } else {
+      button.disabled = false;
+    }
+  },
+  onChange(selectedDates) {
+    const selectedDate = new Date(selectedDates[0]);
+
+    if (selectedDate < currentDate) {
       button.disabled = true;
       iziToast.error({
         title: 'Error',
@@ -39,27 +53,23 @@ const options = {
 
 flatpickr('#datetime-picker', options);
 
-function formatTime(value) {
-  return value < 10 ? `0${value}` : value;
-}
-
-function updateTimerElements(timeObj) {
-  daysElement.textContent = formatTime(timeObj.days);
-  hoursElement.textContent = formatTime(timeObj.hours);
-  minutesElement.textContent = formatTime(timeObj.minutes);
-  secondsElement.textContent = formatTime(timeObj.seconds);
+function addLeadingZero(value) {
+  return value.toString().padStart(2, '0');
 }
 
 function updateTimer(endTime) {
-  const currentTime = new Date();
+  const currentTime = Date.now();
   const timeDifference = endTime - currentTime;
 
   if (timeDifference <= 0) {
     clearInterval(timerInterval);
-    button.disabled = false;
+    updateTimerElements({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   } else {
-    const timeObj = convertMs(timeDifference);
-    updateTimerElements(timeObj);
+    const { days, hours, minutes, seconds } = convertMs(timeDifference);
+    daysElement.textContent = addLeadingZero(days);
+    hoursElement.textContent = addLeadingZero(hours);
+    minutesElement.textContent = addLeadingZero(minutes);
+    secondsElement.textContent = addLeadingZero(seconds);
   }
 }
 
@@ -71,16 +81,9 @@ function startTimer(endTime) {
   button.disabled = true;
 }
 
-document
-  .querySelector('#datetime-picker')
-  .addEventListener('focus', function () {
-    button.disabled = false;
-  });
-
 button.addEventListener('click', function () {
   if (userSelectedDate) {
     startTimer(userSelectedDate);
-    button.disabled = true;
   }
 });
 

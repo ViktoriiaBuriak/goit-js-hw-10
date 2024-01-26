@@ -24,12 +24,24 @@
 
       <fieldset>
         <legend>State</legend>
-        <label for="stateFulfilled">
-          <input type="radio" name="state" id="stateFulfilled" value="fulfilled" required />
+        <label class="state-label" for="stateFulfilled">
+          <input
+            type="radio"
+            name="state"
+            id="stateFulfilled"
+            value="fulfilled"
+            required
+          />
           Fulfilled
         </label>
-        <label for="stateRejected">
-          <input type="radio" name="state" id="stateRejected" value="rejected" required />
+        <label class="state-label" for="stateRejected">
+          <input
+            type="radio"
+            name="state"
+            id="stateRejected"
+            value="rejected"
+            required
+          />
           Rejected
         </label>
       </fieldset>
@@ -37,6 +49,6 @@
       <button type="submit">Create notification</button>
     </form>
 
-    <script src="./js/2-snackbar.js"></script>
+    <script type="module" src="./js/2-snackbar.js"></script>
   </body>
 </html>
